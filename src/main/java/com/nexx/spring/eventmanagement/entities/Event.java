@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.data.rest.core.annotation.RestResource;
+
 @Entity
 public class Event extends AbstractEntity {
 
@@ -34,6 +36,7 @@ public class Event extends AbstractEntity {
 	
 	//Many events can happen at one venue.
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@RestResource(exported = false) //Don't create venue as a link if we use it in post request in event 
 	private Venue venue;
 
 	public String getName() {
@@ -106,6 +109,11 @@ public class Event extends AbstractEntity {
 
 	public void setVenue(Venue venue) {
 		this.venue = venue;
+	}
+	
+	//This is to show the ID during the requests.
+	public Long getResourceId() {
+		return this.id;
 	}
 	
 	

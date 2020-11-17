@@ -11,17 +11,18 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Participant extends AbstractEntity {
 
-	//Need to create name and email
+	// Need to create name and email
 	@Column(nullable = false)
 	private String name;
-	
+
 	@Column(nullable = false)
 	private String email;
-	
+
 	private Boolean checkedIn;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(referencedColumnName = "id", nullable = false,updatable = false) //Event column is associated with ID e.g event_id
+	@JoinColumn(referencedColumnName = "id", nullable = false, updatable = false) // Event column is associated with ID
+																					// e.g event_id
 	private Event event;
 
 	public String getName() {
@@ -55,7 +56,6 @@ public class Participant extends AbstractEntity {
 	public void setEvent(Event event) {
 		this.event = event;
 	}
-	
 
 	@Override
 	public boolean equals(Object obj) {
@@ -65,6 +65,11 @@ public class Participant extends AbstractEntity {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
+	}
+
+	// This is to show the ID during the requests.
+	public Long getResourceId() {
+		return this.id;
 	}
 
 }

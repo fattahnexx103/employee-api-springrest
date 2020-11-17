@@ -70,7 +70,6 @@ public class Venue extends AbstractEntity {
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
-	
 
 	@Override
 	public boolean equals(Object obj) {
@@ -80,6 +79,11 @@ public class Venue extends AbstractEntity {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
+	}
+
+	// This is to show the ID during the requests.
+	public Long getResourceId() {
+		return this.id;
 	}
 
 }

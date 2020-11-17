@@ -40,5 +40,10 @@ public class Organizer extends AbstractEntity {
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+	
+	//This is to show the ID during the requests.
+	public Long getResourceId() {
+		return this.id;
+	}
 
 }

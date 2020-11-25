@@ -1,11 +1,13 @@
 package com.nexx.spring.eventmanagement.repositories;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.Optional;
 
-import com.nexx.spring.eventmanagement.entities.Event;
-import com.nexx.spring.eventmanagement.entities.Participant;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
 import com.nexx.spring.eventmanagement.entities.Venue;
 
-public interface ParticipantRepository extends CrudRepository<Venue, Long> {
+import java.util.List;
+
+public interface ParticipantRepository extends PagingAndSortingRepository<Venue, Long> {
 
 }
